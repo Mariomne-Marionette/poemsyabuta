@@ -4,126 +4,173 @@
   <meta charset="UTF-8" />
   <title>Poemsyabuta</title>
   <style>
-    body {
-      font-family: Georgia, serif;
-      transition: background-color 0.3s, color 0.3s;
-      padding: 40px;
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
-    body.dark {
-      background-color: #121212;
-      color: #f2f2f2;
-    }
-    body.light {
-      background-color: #ffffff;
-      color: #222222;
-    }
-    .tema-toggle {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 1.2em;
-      padding: 5px 10px;
-      background-color: transparent;
-      border: 1px solid currentColor;
-      border-radius: 50%;
-      cursor: pointer;
-      color: inherit;
-      z-index: 999;
-    }
-    header {
-      margin-bottom: 40px;
-    }
-    details {
-      background-color: #1e1e1e;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      border: 1px solid #444;
-      text-align: left;
-      transition: all 0.3s ease;
-      font-size: 0.95em;
-    }
-    summary {
-      font-size: 1.1em;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    details[open] {
-      background-color: #2b2b2b;
-      border-color: #888;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      font-size: 1.05em;
-    }
-    details[open] p {
-      font-size: 1.1em;
-    }
-    details p {
-      overflow-wrap: break-word;
-      word-break: break-word;
-      line-height: 1.6em;
-      max-width: 100%;
-      padding: 5px 0;
-    }
-    main {
-      overflow-x: hidden;
-    }
-    body.light details {
-      background-color: #f0f0f0;
-      border: 1px solid #bbb;
-    }
-    body.light summary {
-      color: #111;
-    }
-    body.light details[open] {
-      background-color: #e4e4e4;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    }
-    body.light details[open] p {
-      color: #222;
-    }
-    @media (max-width: 768px) {
-      body {
-        padding: 20px;
-        font-size: 18px;
-      }
-      header h1 {
-        font-size: 1.8em;
-      }
-      header h2 {
-        font-size: 1.4em;
-      }
-      header p {
-        font-size: 1.1em;
-      }
-      summary {
-        font-size: 1.1em;
-      }
-      details p {
-        font-size: 1em;
-      }
-    }
-  </style>
+
+body {
+  font-family: Georgia, serif;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+body.dark { background-color: #121212; color: #f2f2f2; }
+body.light { background-color: #ffffff; color: #222222; }
+.tema-toggle {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.2em;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+  color: inherit;
+  z-index: 999;
+}
+header { margin-bottom: 40px; }
+details {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  text-align: left;
+}
+summary {
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+}
+details[open] {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Ajuste de fonte para dispositivos menores */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  header h2 {
+    font-size: 1.4em;
+  }
+
+  header p {
+    font-size: 1.1em;
+  }
+
+  summary {
+    font-size: 1.1em;
+  }
+
+  details p {
+    font-size: 1em;
+  }
+}
+
+
+.fonte-toggle {
+  position: absolute;
+  top: 15px;
+  right: 60px;
+  font-size: 1.2em;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+  color: inherit;
+  z-index: 999;
+}
+</style>
+
 </head>
 <body class="dark">
   <button class="tema-toggle" onclick="trocarTema()">🌗</button>
+<button class="fonte-toggle" onclick="aumentarFonte()">📱</button>
   <header>
     <h1>Poemsyabuta</h1>
     <h2>Protótipo Del'lla ART - Prólogo</h2>
     <p>Reflexos em versos, entre luz e sombra.</p>
   </header>
   <main>
-    <details><summary><strong>Marionetes</strong></summary><p>Acordei com os fios me puxando<br>Sociedade me obrigando…<br>Não quero ser assim.<br>Quero ser feliz…<br>Sem ser marionete.<br>Numa corda.<br><br>Sinto pressão.<br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Repetem o script.<br>Mas eu saí do papel.<br>Tô viva demais pra fingir que sou réu.<br><br>Ah, ah…<br>Dupla personalidade, duas caras.<br>Borderline, bipolar…<br>Hmmmm…<br>Mas e daí?<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Como a vida me ensinou<br>A ser pró-submissão…<br>Mas a minha sub missão<br>É maior. Muito maior.<br><br>A corda eu corto.<br>Como teia sobre mim.<br>Tentaram prender.<br>Mas eu decidi:<br>Não mais.<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Improviso forçado.<br>Ensaio de dor.<br>O show continua…<br>Mas quem comanda sou EU.<br><br>Corto os fios.<br>Levanto o palco.<br>E escrevo meu final.<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Eu me vejo.<br>Eu me vejo.<br>Eu me vejo.<br>Agora… eu me vejo.</p></details><details><summary><strong>Espelho</strong></summary><p>No mundo de realidade, e tenho que concordar com o que não quero<br>Se fosse legal usar uma face que não é minha, faço de tudo, mas o improviso não para<br><br>Numa corda, uma marionete, um fantoche<br>Me sentia, agora me, me vejo, fingimento tão<br><br>Forçado, uma máscara de minha vida, não quero mais<br>Talvez esse script, roteiro caia, se desmanche, rasgue com tudo<br><br>Como eu sou assim, minha vida vai seguir, você<br>Continua sendo eu, um espelho, eu vou–vou, mas ninguém quer saber<br><br>Falo, falo até o talo, até dormindo, pesadelos<br>Me atormentando, torturando<br>Me exponho, com espanto, o impossível desprezível<br><br>Oh… oh…<br><br>Me vejo num reflexo, maldade, jurando que ia ser melhor<br>Minha vivência tão pequena, tão copiável<br><br>O improviso mal planejado, você não sabia?<br>Mas (mas) eu não que… quero, me amarei até dormindo…<br><br>Ahhhhh.</p></details><details><summary><strong>Teatral</strong></summary><p>Como eu poderia ir tão longe?<br>Meu passado me define... mas não como pensam.<br><br>Tento pensar igual, mas não consigo.<br>Uma voz que nega a farsa.<br>Vazamentos controlando e falando sobre o que...<br>Eu não tenho um pingo de empatia.<br><br>Mas como poderia ser pior?<br>O teatro revela o inesperado até o infinito...<br>Como uma habilidade de tal potencial.<br><br>When I think about it, the more I get stuck in the theatres.<br>That’s not me. Not I. I’ll can’t open up my eyes...<br>But I can possibly get a new way, oh, oh...<br><br>(Quando penso nisso, quanto mais eu fico preso nos teatrais.<br>Isso não é eu. Não é eu.<br>Não consigo abrir meus olhos.<br>Mas posso possivelmente encontrar um novo caminho. Oh, oh...)<br><br>(Me vejo num reflexo…<br>Não sou marionete…<br>Sou o PRÓPRIO...)</p></details><details><summary><strong>Pesadelo</strong></summary><p>Falam que o palco é o terror…<br>Mas se as estrelas falassem?<br><br>Na minha vida, me questionei:<br>Como eu estou aqui?<br>Como sobrevivi ao julgamento?<br>Será que o desespero do teatro me afetou?<br><br>Vou dormir.<br>Minha cama, meu travesseiro, meu cobertor…<br><br>Onde estou?<br>Um paraíso? Um descanso, sem teatro?<br><br>Grama verde, um céu azul,<br>Lua no céu, sol do outro lado…<br>Me vejo, me viro.<br><br>Aquela persona escura… me observa.<br>Ah, ah… Ahhh…<br><br>Não me dominarás.<br>Não me entregarás.<br>Irei te suprimir.<br><br>Então… você é o pior eu.<br>Não importa quanto eu não fui egoísta, se por uma vez…<br><br>Tu a ser por uma inteira vida.<br>Vou gargalhar quando souber que tu sumiu.<br>Não se surpreenda: eu sou assim desde que apareceu.<br><br>Minha bondade vai indo aos montes, até eu… eu me perder.<br>Julgamento não afeta.<br><br>Sinto que, se a verdade me falar,<br>Minha cara vai me entregar.<br><br>Vejo um futuro a crescer…</p></details><details><summary><strong>Eclipse</strong></summary><p>(No escurecer da noite, coisas podem florescer mais do que o esperado…<br>E você verá.)<br><br>Nas estrelas, o medo a surgir...<br>Mas minha força é maior que ele.<br>Faço que seja curativo.<br><br>O poder da mãe sobre nós...<br>Aos prantos, eu me toco: que a mentira eu vivia.<br>Lua refletida, o sol que brilha... e eu.<br><br>Tenho que viver com o reflexo do eclipse,<br>Quando a bipolaridade for minha falsa abolição.<br><br>Mudo, me encaixo.<br>Que se no alto do mundo minha verdade fosse a maior…<br><br>Tão fraca, forte —<br>Minhas emoções em depressão.<br>Mas o que diz “pressão”?<br><br>O esplendor do luar e do brilho solar<br>Me preenchem com determinação.<br>Destemida será minha voz... na voz da viagem.<br><br>Agora, meu passado me curou.<br>Me fortaleceu.</p></details><details><summary><strong>Coros</strong></summary><p>Já pensou em fazer uma coisa que não sabes se irá funcionar?<br>Bem… isso já aconteceu.<br>E foi mais ou menos assim…<br><br>Após mentiras, shows fracassados, e céus cheios de estrelas…<br><br>Como eu poderia fazer — com toda essa pressão do passado?<br>Porém… seria maldade?<br><br>Digo-lhes:<br>Passado é passado.<br>O futuro... é o agora!<br><br>De começo, meio e fim… o medo quase conseguiu dominar.<br>O espírito se libertou.<br>Com um coro interno, cantarei.<br><br>No meu diário, deixo essa minha marcação.<br>Dons... histórias…<br><br>Ah... Ah... Ah...<br><br>Minha cara me dedura…<br><br>Haha…<br><br>Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhh<br>Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhh</p></details><details><summary><strong>Espetáculo</strong></summary><p>(Senhoras e Senhores... que comece o grande show!)<br><br>Digo isso a vocês todos:<br>Que felicidade!<br><br>Digo que é loucura... meu passado segue a atormentar, então…<br><br>Nessa ruína, falo que — com o lugar que foi um fracasso — dançarei.<br><br>Até me sentindo um astro apreciado,<br>Faço disso... tão belo.<br><br>O que seria que fizesse desprezível, tão possível?<br><br>Agora, quem julgará és o Mestre das Marionetes.<br><br>Me criticaram duramente, mas me reergui.<br>As cordas eu já cortei — o controle agora... Sobre mim?<br>Não há. HAHAHA!<br><br>Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhh…<br><br>Vangloriando aquilo que chamam de “Awesome”?<br>Que patético... mal sabem o que eu passei.<br><br>(Senhoras e Senhores... agradeço por comparecer.<br>Tenham uma ótima noite!)</p></details>
+    
+<details>
+  <summary><strong>Marionetes</strong></summary>
+  <p>Acordei com os fios me puxando<br>Sociedade me obrigando…<br>Não quero ser assim.<br>Quero ser feliz…<br>Sem ser marionete.<br>Numa corda.<br><br>Sinto pressão.<br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Repetem o script.<br>Mas eu saí do papel.<br>Tô viva demais pra fingir que sou réu.<br><br>Ah, ah…<br>Dupla personalidade, duas caras.<br>Borderline, bipolar…<br>Hmmmm…<br>Mas e daí?<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Como a vida me ensinou<br>A ser pró-submissão…<br>Mas a minha sub missão<br>É maior. Muito maior.<br><br>A corda eu corto.<br>Como teia sobre mim.<br>Tentaram prender.<br>Mas eu decidi:<br>Não mais.<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Improviso forçado.<br>Ensaio de dor.<br>O show continua…<br>Mas quem comanda sou EU.<br><br>Corto os fios.<br>Levanto o palco.<br>E escrevo meu final.<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Eu me vejo.<br>Eu me vejo.<br>Eu me vejo.<br>Agora… eu me vejo.</p>
+</details>
+
+<details>
+  <summary><strong>Espelho</strong></summary>
+  <p>No mundo de realidade, e tenho que concordar com o que não quero<br>Se fosse legal usar uma face que não é minha, faço de tudo, mas o improviso não para<br><br>Numa corda, uma marionete, um fantoche<br>Me sentia, agora me, me vejo, fingimento tão<br><br>Forçado, uma máscara de minha vida, não quero mais<br>Talvez esse script, roteiro caia, se desmanche, rasgue com tudo<br><br>Como eu sou assim, minha vida vai seguir, você<br>Continua sendo eu, um espelho, eu vou–vou, mas ninguém quer saber<br><br>Falo, falo até o talo, até dormindo, pesadelos<br>Me atormentando, torturando<br>Me exponho, com espanto, o impossível desprezível<br><br>Oh… oh…<br><br>Me vejo num reflexo, maldade, jurando que ia ser melhor<br>Minha vivência tão pequena, tão copiável<br><br>O improviso mal planejado, você não sabia?<br>Mas (mas) eu não que… quero, me amarei até dormindo…<br><br>Ahhhhh.</p>
+</details>
+
+<details>
+  <summary><strong>Teatral</strong></summary>
+  <p>Como eu poderia ir tão longe?<br>Meu passado me define... mas não como pensam.<br><br>Tento pensar igual, mas não consigo.<br>Uma voz que nega a farsa.<br>Vazamentos controlando e falando sobre o que...<br>Eu não tenho um pingo de empatia.<br><br>Mas como poderia ser pior?<br>O teatro revela o inesperado até o infinito...<br>Como uma habilidade de tal potencial.<br><br>When I think about it, the more I get stuck in the theatres.<br>That’s not me. Not I. I’ll can’t open up my eyes...<br>But I can possibly get a new way, oh, oh...<br><br>(Quando penso nisso, quanto mais eu fico preso nos teatrais.<br>Isso não é eu. Não é eu.<br>Não consigo abrir meus olhos.<br>Mas posso possivelmente encontrar um novo caminho. Oh, oh...)<br><br>(Me vejo num reflexo…<br>Não sou marionete…<br>Sou o PRÓPRIO...)</p>
+</details>
+
+<details>
+  <summary><strong>Pesadelo</strong></summary>
+  <p>Falam que o palco é o terror…<br>Mas se as estrelas falassem?<br><br>Na minha vida, me questionei:<br>Como eu estou aqui?<br>Como sobrevivi ao julgamento?<br>Será que o desespero do teatro me afetou?<br><br>Vou dormir.<br>Minha cama, meu travesseiro, meu cobertor…<br><br>Onde estou?<br>Um paraíso? Um descanso, sem teatro?<br><br>Grama verde, um céu azul,<br>Lua no céu, sol do outro lado…<br>Me vejo, me viro.<br><br>Aquela persona escura… me observa.<br>Ah, ah… Ahhh…<br><br>Não me dominarás.<br>Não me entregarás.<br>Irei te suprimir.<br><br>Então… você é o pior eu.<br>Não importa quanto eu não fui egoísta, se por uma vez…<br><br>Tu a ser por uma inteira vida.<br>Vou gargalhar quando souber que tu sumiu.<br>Não se surpreenda: eu sou assim desde que apareceu.<br><br>Minha bondade vai indo aos montes, até eu… eu me perder.<br>Julgamento não afeta.<br><br>Sinto que, se a verdade me falar,<br>Minha cara vai me entregar.<br><br>Vejo um futuro a crescer…</p>
+</details>
+
+<details>
+  <summary><strong>Eclipse</strong></summary>
+  <p>(No escurecer da noite, coisas podem florescer mais do que o esperado…<br>E você verá.)<br><br>Nas estrelas, o medo a surgir...<br>Mas minha força é maior que ele.<br>Faço que seja curativo.<br><br>O poder da mãe sobre nós...<br>Aos prantos, eu me toco: que a mentira eu vivia.<br>Lua refletida, o sol que brilha... e eu.<br><br>Tenho que viver com o reflexo do eclipse,<br>Quando a bipolaridade for minha falsa abolição.<br><br>Mudo, me encaixo.<br>Que se no alto do mundo minha verdade fosse a maior…<br><br>Tão fraca, forte —<br>Minhas emoções em depressão.<br>Mas o que diz “pressão”?<br><br>O esplendor do luar e do brilho solar<br>Me preenchem com determinação.<br>Destemida será minha voz... na voz da viagem.<br><br>Agora, meu passado me curou.<br>Me fortaleceu.</p>
+</details>
+
+<details>
+  <summary><strong>Coros</strong></summary>
+  <p>Já pensou em fazer uma coisa que não sabes se irá funcionar?<br>Bem… isso já aconteceu.<br>E foi mais ou menos assim…<br><br>Após mentiras, shows fracassados, e céus cheios de estrelas…<br><br>Como eu poderia fazer — com toda essa pressão do passado?<br>Porém… seria maldade?<br><br>Digo-lhes:<br>Passado é passado.<br>O futuro... é o agora!<br><br>De começo, meio e fim… o medo quase conseguiu dominar.<br>O espírito se libertou.<br>Com um coro interno, cantarei.<br><br>No meu diário, deixo essa minha marcação.<br>Dons... histórias…<br><br>Ah... Ah... Ah...<br><br>Minha cara me dedura…<br><br>Haha…<br><br>Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhh<br>Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhh</p>
+</details>
+
+<details>
+  <summary><strong>Espetáculo</strong></summary>
+  <p>(Senhoras e Senhores... que comece o grande show!)<br><br>Digo isso a vocês todos:<br>Que felicidade!<br><br>Digo que é loucura... meu passado segue a atormentar, então…<br><br>Nessa ruína, falo que — com o lugar que foi um fracasso — dançarei.<br><br>Até me sentindo um astro apreciado,<br>Faço disso... tão belo.<br><br>O que seria que fizesse desprezível, tão possível?<br><br>Agora, quem julgará és o Mestre das Marionetes.<br><br>Me criticaram duramente, mas me reergui.<br>As cordas eu já cortei — o controle agora... Sobre mim?<br>Não há. HAHAHA!<br><br>Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhh…<br><br>Vangloriando aquilo que chamam de “Awesome”?<br>Que patético... mal sabem o que eu passei.<br><br>(Senhoras e Senhores... agradeço por comparecer.<br>Tenham uma ótima noite!)</p>
+</details>
+
   </main>
   <script>
-    function trocarTema() {
-      const body = document.body;
-      body.classList.toggle("dark");
-      body.classList.toggle("light");
-    }
-  </script>
+
+function trocarTema() {
+  const body = document.body;
+  body.classList.toggle("dark");
+  body.classList.toggle("light");
+}
+
+
+
+function aumentarFonte() {
+  document.body.style.fontSize = "22px";
+  document.body.style.lineHeight = "1.8";
+  document.body.style.letterSpacing = "0.5px";
+
+  document.querySelector("header h1").style.fontSize = "2em";
+  document.querySelector("header h2").style.fontSize = "1.6em";
+  document.querySelector("header p").style.fontSize = "1.3em";
+  document.querySelector("header").style.lineHeight = "1.6";
+
+  document.querySelectorAll("summary").forEach(el => {
+    el.style.fontSize = "1.3em";
+    el.style.lineHeight = "1.6";
+  });
+
+  document.querySelectorAll("details p").forEach(el => {
+    el.style.fontSize = "1.15em";
+    el.style.lineHeight = "1.8";
+    el.style.letterSpacing = "0.5px";
+  });
+}
+
+</script>
+
 </body>
 </html>
