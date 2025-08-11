@@ -1,0 +1,25 @@
+/* mobile.css — ajustes específicos para telas <= 700px (linkado com media attr) */
+
+.wrap { padding: 16px; }
+header { margin-bottom: 1.2rem; }
+
+/* Botão de tema: evita sobrepor o título no mobile */
+.theme-toggle{
+  position: fixed;
+  top: 10px; right: 10px;
+  z-index: 1000;
+}
+
+/* Barra de busca em coluna única */
+#site-search form { gap: .5rem; }
+#site-search input[type="search"]{
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+#site-search button{
+  flex: 0 0 auto;
+}
+
+/* Conteúdo mais compacto */
+details { padding: .55rem .7rem; }
+summary { line-height: 1.3; }

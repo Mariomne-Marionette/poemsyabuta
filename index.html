@@ -1,104 +1,81 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-     <title>Poemsyabuta</title>
-   <link rel="icon" href="favicon_64x64.png" sizes="64x64">
-   <link rel="icon" href="favicon_96x96.png" sizes="96x96">
-   <link rel="icon" href="favicon_128x128.png" sizes="128x128">
-   <link rel="apple-touch-icon" href="favicon_180x180.png" sizes="180x180">
-   <link rel="icon" href="favicon_256x256.png" sizes="256x256">
-
+  <title>Poemsyabuta</title>
+  <link rel="icon" href="favicon_64x64.png" sizes="64x64">
+  <link rel="icon" href="favicon_96x96.png" sizes="96x96">
+  <link rel="icon" href="favicon_128x128.png" sizes="128x128">
+  <link rel="apple-touch-icon" href="favicon_180x180.png" sizes="180x180">
+  <link rel="icon" href="favicon_256x256.png" sizes="256x256">
   <style>
-
-:root{
-  --bg:#252a38;
-  --fg:#f7c76e;
-  --det-bg: rgba(255,255,255,.05);
-  --det-bg-open: rgba(255, 255, 255, 0.267);
-  --border:#662e7e;
-}
-body.dark{
-  --bg:#252a38;
-  --fg:#f7c76e;
-  --det-bg: rgba(255,255,255,.05);
-  --det-bg-open: rgba(255, 255, 255, 0.053);
-  --border:#662e7e;
-}
-body{
-  background:var(--bg);
-  color:var(--fg);
-  font-family:Georgia, serif;
-  transition:background-color 0.3s, color 0.3s;
-  padding:40px; max-width:800px; margin:auto; text-align:center;
-}
-header{ margin-bottom:40px; }
-
-details{
-  background:var(--det-bg);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:10px; margin-bottom:20px; text-align:left;
-  overflow:hidden;
-  transition:background-color 0.25s ease, border-color .25s ease;
-}
-details[open]{ background:var(--det-bg-open); }
-
-summary{
-  font-size:1.2em; font-weight:bold; cursor:pointer;
-  display:flex; align-items:center; gap:6px;
-  list-style:none;                
-}
-summary::-webkit-details-marker{ display:none; } 
-
-summary::after{
-  content:"▼";
-  display:inline-block;
-  margin-left:8px;
-  transition:transform .9s ease;
-  color:currentColor;
-}
-details[open] > summary::after{
-  transform:rotate(270deg); 
-}
-
-details[open] summary ~ *{
-  animation:expand 0.9s ease-in-out;
-}
-@keyframes expand{
-  from{ opacity:0; transform:translateY(-5px); }
-  to  { opacity:1; transform:translateY(0); }
-}
-
-
-  </style>
-</head>
-<body class="dark">
-<header>
-<div id="site-search" style="margin:16px 0;">
-  <form onsubmit="return false" style="display:flex; gap:8px; align-items:center; justify-content:center;">
-    <input id="q" type="search" placeholder="Pesquisar no site…" aria-label="Pesquisar"
-           style="flex:1; max-width:520px; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:var(--det-bg); color:var(--fg); outline:none;">
-    <button id="clearBtn" type="button"
-            style="padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:var(--det-bg); color:var(--fg); cursor:pointer;">
-      Limpar
-    </button>
-  </form>
-  <div style="margin-top:8px; font-size:.95rem; opacity:.9;">
-    <span id="hits">Mostrando tudo</span>
-  </div>
-</div>
-  <header>
-    <h1>Poemsyabuta</h1>
-    <h2>Protótipo Del'lla ART - Prólogo</h2>
-    <p>Reflexos em versos, entre luz e sombra.</p>
-  </header>
-  <main>
-
+  :root{
+    --bg:#252a38; --fg:#f7c76e;
+    --det-bg: rgba(255,255,255,.05);
+    --det-bg-open: rgba(255,255,255,.10);
+    --border:#662e7e; --accent:#f7c76e;
+  }
+  html[data-theme="light"]{
+    --bg:#ffffff; --fg:#222222;
+    --det-bg: rgba(0,0,0,.04);
+    --det-bg-open: rgba(0,0,0,.06);
+    --border:#bbb; --accent:#111;
+  }
+  html { font-size: clamp(16px, 1.2vw + 0.5rem, 18px); }
+  body { background: var(--bg); color: var(--fg); font-family: Georgia, serif; line-height: 1.6; margin: 0; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: clamp(16px, 4vw, 40px); }
+  header { margin-bottom: 1.8rem; text-align: center; position: relative; }
+  header h1 { margin: 0 0 .25rem; }
+  header h2, header p { margin: .25rem 0; opacity: .9; }
+  .theme-toggle{
+    position: absolute; top: .5rem; right: .5rem;
+    border: 1px solid var(--border); background: var(--det-bg); color: var(--fg);
+    border-radius: 999px; padding: .4rem .6rem; cursor: pointer;
+  }
+  #site-search { margin: 16px 0; }
+  #site-search form { display: flex; gap: .5rem; align-items: center; justify-content: center; flex-wrap: wrap; }
+  #site-search input[type="search"]{
+    flex: 1 1 320px; max-width: 560px; padding: .6rem .8rem; border-radius: .6rem;
+    border: 1px solid var(--border); background: var(--det-bg); color: var(--fg); outline: none;
+  }
+  #site-search button{
+    padding: .6rem .9rem; border-radius: .6rem;
+    border: 1px solid var(--border); background: var(--det-bg); color: var(--fg); cursor: pointer;
+  }
+  #hits { font-size: .95rem; opacity: .85; margin-top: 8px; display: inline-block; }
+  details{
+    background: var(--det-bg); border: 1px solid var(--border); border-radius: .6rem;
+    padding: .6rem .8rem; margin-bottom: 1rem; text-align: left; overflow: hidden;
+    transition: background-color .2s ease, border-color .2s ease;
+  }
+  details[open]{ background: var(--det-bg-open); }
+  summary{ font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: .5rem; list-style: none; margin: 0; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:"▼"; margin-left: .25rem; transition: transform .25s ease; color: currentColor; }
+  details[open] > summary::after{ transform: rotate(270deg); }
+  details[open] summary ~ *{ animation: expand .25s ease; }
+  @keyframes expand{ from{opacity:0; transform:translateY(-4px)} to{opacity:1; transform:translateY(0)} }
 </style>
-    
+  <!-- CSS móvel separado, só carrega em telas até 700px -->
+  <link rel="stylesheet" href="mobile.css" media="(max-width: 700px)">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <button class="theme-toggle" id="themeBtn" aria-label="Alternar tema">🌗</button>
+      <h1>Poemsyabuta</h1>
+       <div id="site-search">
+        <form onsubmit="return false">
+          <input id="q" type="search" placeholder="Pesquisar no site…" aria-label="Pesquisar">
+          <button id="clearBtn" type="button">Limpar</button>
+        </form>
+        <span id="hits">Mostrando tudo</span>
+      </div>
+      <h2>Protótipo Del'lla ART - Prólogo</h2>
+      <p>Reflexos em versos, entre luz e sombra.</p>
+    </header>
+    <main>
 <details>
   <summary><strong>Marionetes</strong></summary>
   <p>Acordei com os fios me puxando<br>Sociedade me obrigando…<br>Não quero ser assim.<br>Quero ser feliz…<br>Sem ser marionete.<br>Numa corda.<br><br>Sinto pressão.<br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Repetem o script.<br>Mas eu saí do papel.<br>Tô viva demais pra fingir que sou réu.<br><br>Ah, ah…<br>Dupla personalidade, duas caras.<br>Borderline, bipolar…<br>Hmmmm…<br>Mas e daí?<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Como a vida me ensinou<br>A ser pró-submissão…<br>Mas a minha sub missão<br>É maior. Muito maior.<br><br>A corda eu corto.<br>Como teia sobre mim.<br>Tentaram prender.<br>Mas eu decidi:<br>Não mais.<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Improviso forçado.<br>Ensaio de dor.<br>O show continua…<br>Mas quem comanda sou EU.<br><br>Corto os fios.<br>Levanto o palco.<br>E escrevo meu final.<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Eu me vejo.<br>Eu me vejo.<br>Eu me vejo.<br>Agora… eu me vejo.</p>
@@ -134,19 +111,17 @@ details[open] summary ~ *{
   <p>(Senhoras e Senhores... que comece o grande show!)<br><br>Digo isso a vocês todos:<br>Que felicidade!<br><br>Digo que é loucura... meu passado segue a atormentar, então…<br><br>Nessa ruína, falo que — com o lugar que foi um fracasso — dançarei.<br><br>Até me sentindo um astro apreciado,<br>Faço disso... tão belo.<br><br>O que seria que fizesse desprezível, tão possível?<br><br>Agora, quem julgará és o Mestre das Marionetes.<br><br>Me criticaram duramente, mas me reergui.<br>As cordas eu já cortei — o controle agora... Sobre mim?<br>Não há. HAHAHA!<br><br>Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhh…<br><br>Vangloriando aquilo que chamam de “Awesome”?<br>Que patético... mal sabem o que eu passei.<br><br>(Senhoras e Senhores... agradeço por comparecer.<br>Tenham uma ótima noite!)</p>
 </details>
 
-</script>
-</body>
-</html>
-<h2 style="text-align:center; margin-top: 50px;">Início Del'lla ART - ATO I</h2>
-<p>O início da luz, o meio das sombras.</p>
-<section style="margin-top: 20px;">
-<style></style>
+<header>
+  
+    <h2>Início Del'lla ART - ATO I</h2>
+    <p>O início da luz, o meio das sombras.</p>
+</header>
+  <style></style>
 
 <details>
   <summary><strong>Ciclos & Recomeços</strong></summary>
   <p> Eu penso em tudo que consegui<br> Em tão pouco tempo<br> Chorando<br><br> Pra tudo<br> Capacidades<br> Probabilidades<br><br> Estados<br> Ainda melhoro mais<br> Evitando conflitos<br><br> Numa dança cheia de maldições<br> Regras estúpidas<br> Fábulas falsas<br> Rostos escondes<br><br> Detesto minha vida<br> Caindo aos pedaços<br> Caindo aos... montes<br><br> —<br><br> Perguntam o que eu faço<br> Eu danço sofrença<br><br> Penso em aliados<br> E odiando inimigos<br> Acabando com minha sanidade<br><br> Atenção em mãos<br> Mundos girarão<br> ...E me vejo<br><br> Espelhos quebrados<br> Olhos vazios<br> Confiança cega<br> Em lugar nenhum<br> Levarás<br><br> —<br><br> Quebrando tudo em mim<br> Traição acusada<br> Tristes finais<br> Corpo como um coração<br> Apedrejado<br><br> Assistindo e existindo<br> Através do caos<br> Descontrolado<br> Lado por lado<br><br> Ordem esquecida<br> Linhas temporais inertes<br><br> —<br><br> Apocalipse como esperança<br> Para nós, a liberdade<br> Alcançarmos<br><br> Desafios a encarar<br> Aceitar o fim<br> Abraçar a morte<br><br> Não deixar se vencer pelo medo<br> Correr não adianta<br> Aquele que tememos<br> Chegará<br><br> —<br> <br>A história se finaliza<br>Um novo nascimento a raiar<br> Solstício de viver começarás</p>
 </details>
-
 
 <details>
 <summary><strong>Bruxaria</strong></summary>
@@ -177,14 +152,11 @@ details[open] summary ~ *{
 <summary><strong>No Final de Tudo</strong></summary>
 <p>Onde se encontra vida, há fim<br> Onde se encontra fim, há possibilidade<br>Assim que vem a contracorrente<br> Do fluxo mestre<br>Não existe submundo ou Olimpo<br> Só o vazio de uma alma<br>—<br>Em uma superfície de madeira<br> 22 arcanos levam à um só<br>Uma loucura de início<br> Uma dama trágica ao fim<br> Esperando está<br>Um que retiro inteiro comanda<br> O respeito tem na alma<br>Uma figura feminina<br> Em devoção banhada és<br> Pensares profundos<br>—<br>Uma excelência por ordem<br> Balanças, Libra, moral descrevem<br>Valorizar como um todo em projetos<br> Seja autoconfiança<br> Em toda decisão existente<br>Como sem ar<br> Em uma corda preso é<br> Seja com cautela e aceite<br> Sacrifícios fará<br>Tesouro de conhecimento<br> Mudanças afetam<br> Sutilezas naturais<br>—<br>Colapso e instável<br> Tudo vai desabar e rachar<br> Rachaduras e mais<br>Ruínas quebradas<br> Destroços<br>Então digo:<br> “Realmente valeu a pena?”<br>Tudo podre<br> Medo é nítido<br> Olho a olho<br> Enfrente o caos<br> Encare-o mais<br>Detalhes...<br> Sua atenção dobre<br> Num mundo fragmentado<br> O prédio caiu...</p>
 </details>
-</section></script>
-
-</body>
-</html>
-<h2 style="text-align:center; margin-top: 50px;">Final Del'lla ART - ATO II</h2>
-<p>Como começou, assim vai terminar.</p>
-<section style="margin-top: 20px;">
-<style></style>
+<header>
+  <h2>Final Del'lla ART - ATO II</h2>
+    <p>Como começou, assim vai terminar.</p>
+</header>
+  <style></style>
 
 <details><summary><strong>La Danse des Maques</strong></summary>
   <p>Dança em uma passarela<br>Je suis tout, mais c'est aussi vide<br>Que mon âme, je suis un vide rempli<br>De fausses valeurs<br>Décroissance des masques déchus<br>Les lieux de pure domination<br>É o que eu sempre quis, sempre quiseram<br>Orgulho, ego e falências<br><br>(Et je n’ai tout<br>Et je n’ai tout)<br><br>Escondo meu rosto<br>Numa máscara definhada<br>Não mostro, o núcleo não sente<br>Ame tudo em chamas, mas do quê?<br>O cheiro de escuridão, então<br>Atire-se assim em mim, eu disse “Assista-se em mim”<br>Nesta pura ruína de destruição capitalista<br>Sua alma me pertence, digo “Sua causa me aparece”<br><br>Les jeunes se désintéressent du monde<br>La faillite de Totale<br><br>Humilhações te acometo, mon amour, você não és nada<br>Je n'ai pas que ça, j'ai beaucoup plus que tout<br>Je suis désolé que vous soyez d'accord,<br>Je ne serais jamais en désaccord, il n'y a aucune raison de l'être<br><br>Je suis à l'aise, viable, le monde est en feu<br>Je ne vais pas abandonner le masque brisé et maudit<br>Sigo o roteiro do mundo, nada vai mudar<br>O improviso perfeito, ninguém vê a verdade, de todo jeito<br><br>O cheiro de escuridão, então<br>Atire-se assim em mim, eu disse “Assista-se em mim”<br>Nesta pura ruína de destruição capitalista<br>Sua alma me pertence, digo “Sua causa me aparece”<br><br>(Et je n’ai tout<br>Et je n’ai tout)<br><br>E eu não tenho nem amor, hahahaha</p>
@@ -219,68 +191,84 @@ details[open] summary ~ *{
   <summary><strong>Apocalipse dos Véus</strong></summary>
   <p>Entre os véus que o tempo rasgou<br>Apocalipse murmura, secreto, cruel<br>Cordas queimadas, palco em cinzas<br>O eco do medo: o fim ou o início?<br><br>As máscaras caídas no chão sagrado<br>Pisadas por passos que buscam ser livres<br>O Apocalipse dança entre nós<br>Não o fim — mas o véu se erguendo<br><br> Espelhos partidos devolvem meu olhar<br>Fragmentos do eu, refletidos mil vezes<br>O Apocalipse sorri, feito arauto<br>De um novo ciclo, de um novo ser<br><br>E eu danço no caos, renascida em poeira<br>Apocalipse, teu nome é liberdade<br>Entre os destroços, sou minha mestra<br>Entre os véus caídos, sou meu começo</p>
 </details>
-
-</html>
-<h2 style="text-align:center; margin-top: 50px;">Toni Zucherini - extras part 1</h2>
-<p>Para que ser amargurado?! Seja feliz! Hahaha!</p>
-<section style="margin-top: 20px;">
-<style></style>
+<header>
+  <h2>Toni Zucherini - extras part 1</h2>
+    <p>Para que ser amargurado?! Seja feliz! Hahaha!</p>
+</header>
+  <style></style>
 
 <details>
   <summary><strong> Doce Enjotivo</strong></summary>
     <p> Doce enjoativo, uma bela enganação</br>Sorte como encantado, guloseima queima </br>Faço desse sonho, um vivido paraíso</br>Caro a querido, azedo a azevinho</br></br>Mundo despreparado, surto descontado</br>Brisa açucarada, suplico açucarado</br>Não é cem porcento alinhado, é complicado</br>Suco em desgosto, o que é oposto?</br></br>Suposto nome de confiança </br>Mas é traíra em ressonância</br>Ó, doce enjoativo, o que aconteceu contigo?</br>De doce virou crítico, o cítrico virou um circo</br></br> Ó, doce disfarce escondido</br> Por que fugiu assim? De uma plateia impiedosa?</br>Doce iludido, o que fez consigo?</br>Se afundou em mágoas, a não sentir a caça </p> 
     </details>
 
-    <details>
+<details>
   <summary><strong>Cinzas: Um Passsado Vivido</strong></summary>
   <p> Coisas se revelam perante cinzas<br>Vejo o passado, cor preta se alastra <br>Fumaça ao tom amadeirado, flamas<br>Conturbado, derturbado, um tom azulado<br><br>Um palco, cheiro de cinzas<br>Denso à forma de um diamante negro <br>Eu sinto esse cheiro, o doce virou azedo <br>Resto de cordas com cruzeta, sofrimento<br><br>Non mi interessa se ti faccio male<br>In nome dell'illusione<br>Per andare avanti<br>Occorre passare dal passato al futuro<br><br>Olhe para baixo e verá<br>Temer é uma covardia<br>Passado nada vai mudar<br> Se esquecer tentar faze-lo </p>
    </details>
 
-    <details>
+<details>
   <summary><strong>Danza Della Desilusione</strong></summary>
   <p>Numa eterna dança, eu vejo o doce lar<br>Caindo como uma bela torre ao reverso<br>Fim de ciclos, enfim surtirão, tudo se esvai<br>Névoa doce amor, com vento em voo<br><br>Lute pelo que é valor, usando todo calor<br>Um futuro tenho a explorar e sem remorso<br>Olhando passado eu vou estar, para brilhar<br>Sem limites um algodão adocicado, serei eu<br>Olhando através de um palco de dores e rancores<br>Venoso doce aroma de dor, é uma vida sem mentir<br>É uma volta sem fim, looping de furacão, há liberação<br>Verdadeira luz, amor e emoção, como uma dança<br><br>Danza della desilusione, como uma pluma<br>Árvores caem de tristeza e dor, arrefecer em louvor<br>Paz de alma, usando o Sete de Espadas <br>Fortuna enforcada, mas é o necessário, chifres e fogo </p>
     </details>
     </main>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  (function(){
-    const input   = document.getElementById('q');
-    const clear   = document.getElementById('clearBtn');
-    const hits    = document.getElementById('hits');
-    const details = Array.from(document.querySelectorAll('details'));
+  </div>
+  <script>
+(function(){
+  const root = document.documentElement;
+  const stored = localStorage.getItem('theme');
+  const preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  const startTheme = stored || preferred;
+  root.setAttribute('data-theme', startTheme);
 
-    if (!input || !clear || !hits) return;
+  const btn = document.getElementById('themeBtn');
+  if (btn){
+    btn.addEventListener('click', () => {
+      const cur = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', cur);
+      localStorage.setItem('theme', cur);
+    });
+  }
+})();
+</script>
+  <script>
+(function(){
+  const input   = document.getElementById('q');
+  const clear   = document.getElementById('clearBtn');
+  const hits    = document.getElementById('hits');
+  const details = Array.from(document.querySelectorAll('details'));
+  if (!input || !clear || !hits) return;
 
-    const norm = s => (s || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
+  const norm = s => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-    let last = '';
-    function run(){
-      const q = norm(input.value.trim());
-      if (q === last) return;
-      last = q;
+  const originalStates = new Map();
+  details.forEach(det => originalStates.set(det, det.open));
 
-      let count = 0;
-      details.forEach(det => {
-        const text = norm(det.innerText);
-        if (!q || text.includes(q)){
-          det.style.display = '';
-          if (q) det.open = true;
-          count++;
-        } else {
-          det.style.display = 'none';
-        }
-      });
+  let last = '';
+  function run(){
+    const q = norm(input.value.trim());
+    if (q === last) return;
+    last = q;
 
-      hits.textContent = q
-        ? (count ? `${count} resultado${count>1?'s':''}` : 'Nenhum resultado')
-        : 'Mostrando tudo';
-    }
+    let count = 0;
+    details.forEach(det => {
+      const text = norm(det.innerText);
+      if (!q || text.includes(q)){
+        det.style.display = '';
+        if (q) det.open = true;
+        count++;
+      } else {
+        det.style.display = 'none';
+      }
+    });
 
-    let t;
-    input.addEventListener('input', () => {
+    hits.textContent = q
+      ? (count ? `${count} resultado${count>1?'s':''}` : 'Nenhum resultado')
+      : 'Mostrando tudo';
+  }
+
+  let t;
+  input.addEventListener('input', () => {
     clearTimeout(t);
     if (input.value.trim() === '') {
       last = '';
@@ -293,31 +281,19 @@ document.addEventListener('DOMContentLoaded', function(){
       t = setTimeout(run, 120);
     }
   });
-    clear.addEventListener('click', () => {
-      input.value = ''; last = '';
-      details.forEach(det => { det.style.display=''; });
-      hits.textContent = 'Mostrando tudo';
-      input.focus();
-    });
-    input.addEventListener('keydown', e => { if (e.key === 'Escape') clear.click(); });
 
-    // Guardar estado original (aberto/fechado) dos <details>
-    const originalStates = new Map();
-    details.forEach(det => { originalStates.set(det, det.open); });
-
-    // Substituir o handler do botão Limpar para restaurar o estado original
-    clear.removeEventListener?.('click', ()=>{}); // no-op em browsers sem suporte
-    clear.addEventListener('click', () => {
-      input.value = ''; last = '';
-      details.forEach(det => {
-        det.style.display='';
-        det.open = originalStates.get(det) || false;
-      });
-      hits.textContent = 'Mostrando tudo';
-      input.focus();
+  clear.addEventListener('click', () => {
+    input.value = ''; last = '';
+    details.forEach(det => {
+      det.style.display='';
+      det.open = originalStates.get(det) || false;
     });
-  })();
-});
+    hits.textContent = 'Mostrando tudo';
+    input.focus();
+  });
+
+  input.addEventListener('keydown', e => { if (e.key === 'Escape') clear.click(); });
+})();
 </script>
 </body>
 </html>
