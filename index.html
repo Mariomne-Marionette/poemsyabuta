@@ -49,12 +49,32 @@
     padding: .6rem .8rem; margin-bottom: 1rem; text-align: left; overflow: hidden;
     transition: background-color .2s ease, border-color .2s ease;
   }
+  summary{
+  font-size:1.2em; font-weight:bold; cursor:pointer;
+  display:flex; align-items:center; gap:6px;
+  list-style:none;                
+}
+summary::-webkit-details-marker{ display:none; } 
+
+summary::after{
+  content:"▼";
+  display:inline-block;
+  margin-left:8px;
+  transition:transform 0.9s ease;
+  color:currentColor;
+}
+details[open] > summary::after{
+  transform:rotate(270deg); 
+}
   details[open]{ background: var(--det-bg-open); }
   summary{ font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: .5rem; list-style: none; margin: 0; }
   summary::-webkit-details-marker{ display:none; }
-  summary::after{ content:"▼"; margin-left: .25rem; transition: transform .25s ease; color: currentColor; }
+  summary::after{ content:"▼"; margin-left: 0.25rem; transition: transform 0.9s ease; color: currentColor; }
   details[open] > summary::after{ transform: rotate(270deg); }
-  details[open] summary ~ *{ animation: expand .25s ease; }
+  details[open] summary ~ *{ animation: expand 0.9s ease; }
+  details[open] summary ~ *{
+  animation:expand 0.9s ease-in-out;
+}
   @keyframes expand{ from{opacity:0; transform:translateY(-4px)} to{opacity:1; transform:translateY(0)} }
 </style>
   <!-- CSS móvel separado, só carrega em telas até 700px -->
