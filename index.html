@@ -12,101 +12,79 @@
 
   <style>
 
-body {
-  font-family: Georgia, serif;
-  transition: background-color 0.3s, color 0.3s;
-  padding: 40px;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
+:root{
+  --bg:#252a38;
+  --fg:#f7c76e;
+  --det-bg: rgba(255,255,255,.05);
+  --det-bg-open: rgba(255, 255, 255, 0.267);
+  --border:#662e7e;
 }
-body.dark { background-color: #121212; color: #f2f2f2; }
-body.light { background-color: #ffffff; color: #222222; }
-.tema-toggle {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 1.2em;
-  padding: 5px 10px;
-  background-color: transparent;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  cursor: pointer;
-  color: inherit;
-  z-index: 999;
+body.dark{
+  --bg:#252a38;
+  --fg:#f7c76e;
+  --det-bg: rgba(255,255,255,.05);
+  --det-bg-open: rgba(255, 255, 255, 0.053);
+  --border:#662e7e;
 }
-header { margin-bottom: 40px; }
-details {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  border: 1px solid #444;
-  text-align: left;
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:Georgia, serif;
+  transition:background-color 0.3s, color 0.3s;
+  padding:40px; max-width:800px; margin:auto; text-align:center;
 }
-summary {
-  font-size: 1.2em;
-  font-weight: bold;
-  cursor: pointer;
+header{ margin-bottom:40px; }
+
+details{
+  background:var(--det-bg);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px; margin-bottom:20px; text-align:left;
+  overflow:hidden;
+  transition:background-color 0.25s ease, border-color .25s ease;
 }
-details[open] {
-  background-color: rgba(255, 255, 255, 0.1);
+details[open]{ background:var(--det-bg-open); }
+
+summary{
+  font-size:1.2em; font-weight:bold; cursor:pointer;
+  display:flex; align-items:center; gap:6px;
+  list-style:none;                
+}
+summary::-webkit-details-marker{ display:none; } 
+
+summary::after{
+  content:"▼";
+  display:inline-block;
+  margin-left:8px;
+  transition:transform .9s ease;
+  color:currentColor;
+}
+details[open] > summary::after{
+  transform:rotate(270deg); 
 }
 
-
-/* Ajuste de fonte para dispositivos menores */
-@media (max-width: 768px) {
-  body {
-    padding: 20px;
-    font-size: 18px;
-  }
-
-  header h1 {
-    font-size: 1.8em;
-  }
-
-  header h2 {
-    font-size: 1.4em;
-  }
-
-  header p {
-    font-size: 1.1em;
-  }
-
-  summary {
-    font-size: 1.1em;
-  }
-
-  details p {
-    font-size: 1em;
-  }
+details[open] summary ~ *{
+  animation:expand 0.9s ease-in-out;
+}
+@keyframes expand{
+  from{ opacity:0; transform:translateY(-5px); }
+  to  { opacity:1; transform:translateY(0); }
 }
 
 
-.fonte-toggle {
-  position: absolute;
-  top: 15px;
-  right: 60px;
-  font-size: 1.2em;
-  padding: 5px 10px;
-  background-color: transparent;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  cursor: pointer;
-  color: inherit;
-  z-index: 999;
-}
 </style>
 
 </head>
 <body class="dark">
-  <button class="tema-toggle" onclick="trocarTema()">🌗</button>
+
   <header>
     <h1>Poemsyabuta</h1>
     <h2>Protótipo Del'lla ART - Prólogo</h2>
     <p>Reflexos em versos, entre luz e sombra.</p>
   </header>
   <main>
+
+</style>
     
 <details>
   <summary><strong>Marionetes</strong></summary>
@@ -143,42 +121,13 @@ details[open] {
   <p>(Senhoras e Senhores... que comece o grande show!)<br><br>Digo isso a vocês todos:<br>Que felicidade!<br><br>Digo que é loucura... meu passado segue a atormentar, então…<br><br>Nessa ruína, falo que — com o lugar que foi um fracasso — dançarei.<br><br>Até me sentindo um astro apreciado,<br>Faço disso... tão belo.<br><br>O que seria que fizesse desprezível, tão possível?<br><br>Agora, quem julgará és o Mestre das Marionetes.<br><br>Me criticaram duramente, mas me reergui.<br>As cordas eu já cortei — o controle agora... Sobre mim?<br>Não há. HAHAHA!<br><br>Aaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhh…<br><br>Vangloriando aquilo que chamam de “Awesome”?<br>Que patético... mal sabem o que eu passei.<br><br>(Senhoras e Senhores... agradeço por comparecer.<br>Tenham uma ótima noite!)</p>
 </details>
 
-  </main>
-  <script>
-
-function trocarTema() {
-  const body = document.body;
-  body.classList.toggle("dark");
-  body.classList.toggle("light");
-}
-
-
 </script>
-
 </body>
 </html>
 <h2 style="text-align:center; margin-top: 50px;">Início Del'lla ART - ATO I</h2>
 <p>O início da luz, o meio das sombras.</p>
 <section style="margin-top: 20px;">
-<style>
-details {
-  overflow: hidden;
-  transition: all 0.4s ease;
-}
-details[open] summary ~ * {
-  animation: expand 0.4s ease-in-out;
-}
-@keyframes expand {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>
+<style></style>
 
 <details>
   <summary><strong>Ciclos & Recomeços</strong></summary>
@@ -215,36 +164,14 @@ details[open] summary ~ * {
 <summary><strong>No Final de Tudo</strong></summary>
 <p>Onde se encontra vida, há fim<br> Onde se encontra fim, há possibilidade<br>Assim que vem a contracorrente<br> Do fluxo mestre<br>Não existe submundo ou Olimpo<br> Só o vazio de uma alma<br>—<br>Em uma superfície de madeira<br> 22 arcanos levam à um só<br>Uma loucura de início<br> Uma dama trágica ao fim<br> Esperando está<br>Um que retiro inteiro comanda<br> O respeito tem na alma<br>Uma figura feminina<br> Em devoção banhada és<br> Pensares profundos<br>—<br>Uma excelência por ordem<br> Balanças, Libra, moral descrevem<br>Valorizar como um todo em projetos<br> Seja autoconfiança<br> Em toda decisão existente<br>Como sem ar<br> Em uma corda preso é<br> Seja com cautela e aceite<br> Sacrifícios fará<br>Tesouro de conhecimento<br> Mudanças afetam<br> Sutilezas naturais<br>—<br>Colapso e instável<br> Tudo vai desabar e rachar<br> Rachaduras e mais<br>Ruínas quebradas<br> Destroços<br>Então digo:<br> “Realmente valeu a pena?”<br>Tudo podre<br> Medo é nítido<br> Olho a olho<br> Enfrente o caos<br> Encare-o mais<br>Detalhes...<br> Sua atenção dobre<br> Num mundo fragmentado<br> O prédio caiu...</p>
 </details>
-
-
-</section>
-
-</script>
+</section></script>
 
 </body>
 </html>
 <h2 style="text-align:center; margin-top: 50px;">Final Del'lla ART - ATO II</h2>
 <p>Como começou, assim vai terminar.</p>
 <section style="margin-top: 20px;">
-<style>
-details {
-  overflow: hidden;
-  transition: all 0.4s ease;
-}
-details[open] summary ~ * {
-  animation: expand 0.4s ease-in-out;
-}
-@keyframes expand {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>
+<style></style>
 
 <details><summary><strong>La Danse des Maques</strong></summary>
   <p>Dança em uma passarela<br>Je suis tout, mais c'est aussi vide<br>Que mon âme, je suis un vide rempli<br>De fausses valeurs<br>Décroissance des masques déchus<br>Les lieux de pure domination<br>É o que eu sempre quis, sempre quiseram<br>Orgulho, ego e falências<br><br>(Et je n’ai tout<br>Et je n’ai tout)<br><br>Escondo meu rosto<br>Numa máscara definhada<br>Não mostro, o núcleo não sente<br>Ame tudo em chamas, mas do quê?<br>O cheiro de escuridão, então<br>Atire-se assim em mim, eu disse “Assista-se em mim”<br>Nesta pura ruína de destruição capitalista<br>Sua alma me pertence, digo “Sua causa me aparece”<br><br>Les jeunes se désintéressent du monde<br>La faillite de Totale<br><br>Humilhações te acometo, mon amour, você não és nada<br>Je n'ai pas que ça, j'ai beaucoup plus que tout<br>Je suis désolé que vous soyez d'accord,<br>Je ne serais jamais en désaccord, il n'y a aucune raison de l'être<br><br>Je suis à l'aise, viable, le monde est en feu<br>Je ne vais pas abandonner le masque brisé et maudit<br>Sigo o roteiro do mundo, nada vai mudar<br>O improviso perfeito, ninguém vê a verdade, de todo jeito<br><br>O cheiro de escuridão, então<br>Atire-se assim em mim, eu disse “Assista-se em mim”<br>Nesta pura ruína de destruição capitalista<br>Sua alma me pertence, digo “Sua causa me aparece”<br><br>(Et je n’ai tout<br>Et je n’ai tout)<br><br>E eu não tenho nem amor, hahahaha</p>
@@ -279,3 +206,24 @@ details[open] summary ~ * {
   <summary><strong>Apocalipse dos Véus</strong></summary>
   <p>Entre os véus que o tempo rasgou<br>Apocalipse murmura, secreto, cruel<br>Cordas queimadas, palco em cinzas<br>O eco do medo: o fim ou o início?<br><br>As máscaras caídas no chão sagrado<br>Pisadas por passos que buscam ser livres<br>O Apocalipse dança entre nós<br>Não o fim — mas o véu se erguendo<br><br> Espelhos partidos devolvem meu olhar<br>Fragmentos do eu, refletidos mil vezes<br>O Apocalipse sorri, feito arauto<br>De um novo ciclo, de um novo ser<br><br>E eu danço no caos, renascida em poeira<br>Apocalipse, teu nome é liberdade<br>Entre os destroços, sou minha mestra<br>Entre os véus caídos, sou meu começo</p>
 </details>
+
+</html>
+<h2 style="text-align:center; margin-top: 50px;">Toni Zucherini - extras part 1</h2>
+<p>Para que ser amargurado?! Seja feliz! Hahaha!</p>
+<section style="margin-top: 20px;">
+<style></style>
+
+<details>
+  <summary><strong> Doce Enjotivo</strong></summary>
+    <p> Doce enjoativo, uma bela enganação</br>Sorte como encantado, guloseima queima </br>Faço desse sonho, um vivido paraíso</br>Caro a querido, azedo a azevinho</br></br>Mundo despreparado, surto descontado</br>Brisa açucarada, suplico açucarado</br>Não é cem porcento alinhado, é complicado</br>Suco em desgosto, o que é oposto?</br></br>Suposto nome de confiança </br>Mas é traíra em ressonância</br>Ó, doce enjoativo, o que aconteceu contigo?</br>De doce virou crítico, o cítrico virou um circo</br></br> Ó, doce disfarce escondido</br> Por que fugiu assim? De uma plateia impiedosa?</br>Doce iludido, o que fez consigo?</br>Se afundou em mágoas, a não sentir a caça </p> 
+    </details>
+
+    <details>
+  <summary><strong>Cinzas: Um Passsado Vivido</strong></summary>
+  <p> Coisas se revelam perante cinzas<br>Vejo o passado, cor preta se alastra <br>Fumaça ao tom amadeirado, flamas<br>Conturbado, derturbado, um tom azulado<br><br>Um palco, cheiro de cinzas<br>Denso à forma de um diamante negro <br>Eu sinto esse cheiro, o doce virou azedo <br>Resto de cordas com cruzeta, sofrimento<br><br>Non mi interessa se ti faccio male<br>In nome dell'illusione<br>Per andare avanti<br>Occorre passare dal passato al futuro<br><br>Olhe para baixo e verá<br>Temer é uma covardia<br>Passado nada vai mudar<br> Se esquecer tentar faze-lo </p>
+   </details>
+
+    <details>
+  <summary><strong>Danza Della Desilusione</strong></summary>
+  <p>Numa eterna dança, eu vejo o doce lar<br>Caindo como uma bela torre ao reverso<br>Fim de ciclos, enfim surtirão, tudo se esvai<br>Névoa doce amor, com vento em voo<br><br>Lute pelo que é valor, usando todo calor<br>Um futuro tenho a explorar e sem remorso<br>Olhando passado eu vou estar, para brilhar<br>Sem limites um algodão adocicado, serei eu<br>Olhando através de um palco de dores e rancores<br>Venoso doce aroma de dor, é uma vida sem mentir<br>É uma volta sem fim, looping de furacão, há liberação<br>Verdadeira luz, amor e emoção, como uma dança<br><br>Danza della desilusione, como uma pluma<br>Árvores caem de tristeza e dor, arrefecer em louvor<br>Paz de alma, usando o Sete de Espadas <br>Fortuna enforcada, mas é o necessário, chifres e fogo </p>
+    </details>
