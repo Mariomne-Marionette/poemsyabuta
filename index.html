@@ -1,105 +1,126 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-     <title>Poemsyabuta</title>
-   <link rel="icon" href="favicon_64x64.png" sizes="64x64">
-   <link rel="icon" href="favicon_96x96.png" sizes="96x96">
-   <link rel="icon" href="favicon_128x128.png" sizes="128x128">
-   <link rel="apple-touch-icon" href="favicon_180x180.png" sizes="180x180">
-   <link rel="icon" href="favicon_256x256.png" sizes="256x256">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poemsyabuta</title>
 
-  <style>
+<link rel="icon" href="favicon_64x64.png" sizes="64x64">
+<link rel="icon" href="favicon_96x96.png" sizes="96x96">
+<link rel="icon" href="favicon_128x128.png" sizes="128x128">
+<link rel="icon" href="favicon_256x256.png" sizes="256x256">
+<link rel="apple-touch-icon" href="favicon_180x180.png">
 
+<style>
 :root{
   --bg:#252a38;
   --fg:#f7c76e;
-  --det-bg: rgba(255,255,255,.05);
-  --det-bg-open: rgba(255, 255, 255, 0.267);
+  --det-bg:rgba(255,255,255,.05);
+  --det-bg-open:rgba(255,255,255,.15);
   --border:#662e7e;
 }
-body.dark{
-  --bg:#252a38;
-  --fg:#f7c76e;
-  --det-bg: rgba(255,255,255,.05);
-  --det-bg-open: rgba(255, 255, 255, 0.053);
-  --border:#662e7e;
-}
+
 body{
   background:var(--bg);
   color:var(--fg);
   font-family:Georgia, serif;
-  transition:background-color 0.3s, color 0.3s;
-  padding:40px; max-width:800px; margin:auto; text-align:center;
+  padding:40px;
+  max-width:800px;
+  margin:auto;
+  text-align:center;
 }
+
 header{ margin-bottom:40px; }
+
+a{ color:var(--fg); text-decoration:none; }
 
 details{
   background:var(--det-bg);
   border:1px solid var(--border);
   border-radius:10px;
-  padding:10px; margin-bottom:20px; text-align:left;
-  overflow:hidden;
-  transition:background-color 0.25s ease, border-color .25s ease;
+  padding:12px;
+  margin-bottom:20px;
+  text-align:left;
+  transition:.25s;
 }
+
 details[open]{ background:var(--det-bg-open); }
 
 summary{
-  font-size:1.2em; font-weight:bold; cursor:pointer;
-  display:flex; align-items:center; gap:6px;
-  list-style:none;                
+  font-size:1.2em;
+  font-weight:bold;
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-summary::-webkit-details-marker{ display:none; } 
+
+summary::-webkit-details-marker{ display:none; }
 
 summary::after{
   content:"▼";
-  display:inline-block;
-  margin-left:8px;
-  transition:transform .9s ease;
-  color:currentColor;
+  transition:.3s;
 }
-details[open] > summary::after{
-  transform:rotate(270deg); 
+
+details[open] summary::after{
+  transform:rotate(270deg);
 }
 
 details[open] summary ~ *{
-  animation:expand 0.9s ease-in-out;
+  animation:expand .5s ease;
 }
+
 @keyframes expand{
-  from{ opacity:0; transform:translateY(-5px); }
-  to  { opacity:1; transform:translateY(0); }
+  from{opacity:0; transform:translateY(-5px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
+#site-search{
+  margin:20px 0;
+}
 
-  </style>
+#site-search form{
+  display:flex;
+  gap:8px;
+}
+
+input, button{
+  padding:10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--det-bg);
+  color:var(--fg);
+}
+
+button{ cursor:pointer; }
+
+section{ margin-top:40px; }
+</style>
 </head>
-<body class="dark">
+
+<body>
 <header>
-  <a href="Poemsyabuta.apk" download>Download APK</a>
-<div id="site-search" style="margin:16px 0;">
+  <a href="Poemsyabuta.apk" download> Download APK</a>
+  <div id="site-search" style="margin:16px 0;">
   <form onsubmit="return false" style="display:flex; gap:8px; align-items:center; justify-content:center;">
     <input id="q" type="search" placeholder="Pesquisar no site…" aria-label="Pesquisar"
            style="flex:1; max-width:520px; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:var(--det-bg); color:var(--fg); outline:none;">
     <button id="clearBtn" type="button"
             style="padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:var(--det-bg); color:var(--fg); cursor:pointer;">
-      Limpar
-    </button>
-  </form>
-  <div style="margin-top:8px; font-size:.95rem; opacity:.9;">
-    <span id="hits">Mostrando tudo</span>
+      Limpar</button>
+    </form>
+    <div style="margin-top:8px">
+    </div>
   </div>
-</div>
-  <header>
-    <h1>Poemsyabuta</h1>
-    <h2>Protótipo Del'lla ART - Prólogo</h2>
-    <p>Reflexos em versos, entre luz e sombra.</p>
-  </header>
-  <main>
 
-</style>
-    
+  <h1>Poemsyabuta</h1>
+  <h2> Parte Um</h2>
+  <p>Reflexos em versos, entre luz e sombra.</p>
+</header>
+
+<main>
+
 <details>
   <summary><strong>Marionetes</strong></summary>
   <p>Acordei com os fios me puxando<br>Sociedade me obrigando…<br>Não quero ser assim.<br>Quero ser feliz…<br>Sem ser marionete.<br>Numa corda.<br><br>Sinto pressão.<br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Repetem o script.<br>Mas eu saí do papel.<br>Tô viva demais pra fingir que sou réu.<br><br>Ah, ah…<br>Dupla personalidade, duas caras.<br>Borderline, bipolar…<br>Hmmmm…<br>Mas e daí?<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Como a vida me ensinou<br>A ser pró-submissão…<br>Mas a minha sub missão<br>É maior. Muito maior.<br><br>A corda eu corto.<br>Como teia sobre mim.<br>Tentaram prender.<br>Mas eu decidi:<br>Não mais.<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Improviso forçado.<br>Ensaio de dor.<br>O show continua…<br>Mas quem comanda sou EU.<br><br>Corto os fios.<br>Levanto o palco.<br>E escrevo meu final.<br><br>Não sou marionete, não.<br>Sou o PRÓPRIO mestre.<br>Controlo tudo à minha vista.<br>Minha vida, minha vita, minha sina.<br>E não… me submeterei.<br><br>Olham pro lado e me veem,<br>Como se na TV.<br>Eles te veem… e não te vê.<br><br>Eu me vejo.<br>Eu me vejo.<br>Eu me vejo.<br>Agora… eu me vejo.</p>
@@ -138,7 +159,7 @@ details[open] summary ~ *{
 </script>
 </body>
 </html>
-<h2 style="text-align:center; margin-top: 50px;">Início Del'lla ART - ATO I</h2>
+<h2 style="text-align:center; margin-top: 50px;">Parte Dois</h2>
 <p>O início da luz, o meio das sombras.</p>
 <section style="margin-top: 20px;">
 <style></style>
@@ -182,7 +203,7 @@ details[open] summary ~ *{
 
 </body>
 </html>
-<h2 style="text-align:center; margin-top: 50px;">Final Del'lla ART - ATO II</h2>
+<h2 style="text-align:center; margin-top: 50px;">Parte Três</h2>
 <p>Como começou, assim vai terminar.</p>
 <section style="margin-top: 20px;">
 <style></style>
@@ -258,84 +279,58 @@ details[open] summary ~ *{
  <p>Laços do destino se entrelaçam, um suspiro exasperado<br>Insígnia de um passado secreto, vejo um feitiço discreto<br>Quanto mais pensar, maior o encantar do luar tão intenso<br>Sem tormento, vejo o céu brilhar e ressoar com a centelha<br><br>Ciclos sem parar, um futuro a aguardar, tão misterioso é<br>Enfeitiçar, enredar, o libertar, força indomável, sou renascer<br>O anoitecer, o entardecer, sou um feitiço ambulante forte<br>Por natureza e sem parar por essência, sem mimimi<br><br>E sem clemencia, sou um só com a natureza, não questiono<br>Não choro, vivo por viver, em uma terra de prazer, conhecer<br>Pode me odiar, e eu vou criar, não me rebaixo, não mais<br>Controle sobre mim? Não me satisfaz, já que eu sou capaz<br><br>Fogo, água, terra e ar, sou éter e dentre mais, a chama proclama<br>Silêncio que se desfaz, mandando mal para nunca mais, sigo em paz<br>Sem medo, eu vou atrás, o que me traz aqui, te derruba ali no agir<br>Poder ser quem sempre sonhou, é legal e letal, sempre no final</p>
    </details>
 
-    </main>
+   <details>
+  <summary><strong>Madala</strong></summary>
+  <p>Mesmo depois de ritos e rituais, sem magia colossal<br>Contratos de dores em mandalas espirituais, integral<br>Mas qual é a sensação de ser uma louca terminal<br>Afinal? Subo em pilares sem finais, tal como pedestal<br><br>Pentagrama num portal, cadê o ponto inicial?<br>Dizem espalhar o essencial, mas olho ódio fatal<br>Entre ritmos sem igual, cantam desamores sem sinal<br>Feitiços encruzilhados, secos, sem sentido, são letais<br><br>Minha mente entra num fluxo temporal, sem saída infernal<br>Imortal é um sinal, para um poder descomunal, e tudo é banal<br>Meu sofrimento desigual, eu me sinto igual uma puta visceral<br>Espíritos me perseguem numa corrida, é vital, tão primordial<br><br>Essa loucura total, me deixa preso num ponto bem irracional<br>Reflexos de um futuro irreal, porque não veem que tudo é brutal<br>No meio de uma confusão ilusória tão real, que parece sentimental<br>Sem futuro, sem passado, eu quero ver você chorar, o prazer é abissal</p>
+</details>
+
+</main>
+
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-  (function(){
-    const input   = document.getElementById('q');
-    const clear   = document.getElementById('clearBtn');
-    const hits    = document.getElementById('hits');
-    const details = Array.from(document.querySelectorAll('details'));
+document.addEventListener('DOMContentLoaded', () => {
 
-    if (!input || !clear || !hits) return;
+  const input  = document.getElementById('q');
+  const clear  = document.getElementById('clearBtn');
+  const hits   = document.getElementById('hits');
+  const items  = [...document.querySelectorAll('details')];
 
-    const norm = s => (s || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
+  const originalState = new Map(items.map(d => [d, d.open]));
 
-    let last = '';
-    function run(){
-      const q = norm(input.value.trim());
-      if (q === last) return;
-      last = q;
+  const normalize = s =>
+    s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 
-      let count = 0;
-      details.forEach(det => {
-        const text = norm(det.innerText);
-        if (!q || text.includes(q)){
-          det.style.display = '';
-          if (q) det.open = true;
-          count++;
-        } else {
-          det.style.display = 'none';
-        }
-      });
+  input.addEventListener('input', () => {
+    const q = normalize(input.value.trim());
+    let count = 0;
 
-      hits.textContent = q
-        ? (count ? `${count} resultado${count>1?'s':''}` : 'Nenhum resultado')
-        : 'Mostrando tudo';
-    }
+    items.forEach(d => {
+      const match = !q || normalize(d.textContent).includes(q);
+      d.style.display = match ? '' : 'none';
+      if (match && q) d.open = true;
+      count += match ? 1 : 0;
+    });
 
-    let t;
-    input.addEventListener('input', () => {
-    clearTimeout(t);
-    if (input.value.trim() === '') {
-      last = '';
-      details.forEach(det => {
-        det.style.display='';
-        det.open = originalStates.get(det) || false;
-      });
-      hits.textContent = 'Mostrando tudo';
-    } else {
-      t = setTimeout(run, 120);
-    }
+    hits.textContent = q
+      ? (count ? `${count} resultado${count>1?'s':''}` : 'Nenhum resultado')
+      : 'Mostrando tudo';
   });
-    clear.addEventListener('click', () => {
-      input.value = ''; last = '';
-      details.forEach(det => { det.style.display=''; });
-      hits.textContent = 'Mostrando tudo';
-      input.focus();
-    });
-    input.addEventListener('keydown', e => { if (e.key === 'Escape') clear.click(); });
 
-    // Guardar estado original (aberto/fechado) dos <details>
-    const originalStates = new Map();
-    details.forEach(det => { originalStates.set(det, det.open); });
-
-    // Substituir o handler do botão Limpar para restaurar o estado original
-    clear.removeEventListener?.('click', ()=>{}); // no-op em browsers sem suporte
-    clear.addEventListener('click', () => {
-      input.value = ''; last = '';
-      details.forEach(det => {
-        det.style.display='';
-        det.open = originalStates.get(det) || false;
-      });
-      hits.textContent = 'Mostrando tudo';
-      input.focus();
+  clear.addEventListener('click', () => {
+    input.value = '';
+    items.forEach(d => {
+      d.style.display = '';
+      d.open = originalState.get(d);
     });
-  })();
+    hits.textContent = 'Mostrando tudo';
+    input.focus();
+  });
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Escape') clear.click();
+  });
+
 });
 </script>
+
 </body>
 </html>
